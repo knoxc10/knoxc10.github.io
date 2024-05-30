@@ -1,0 +1,360 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Study Guide - Railroad Signals</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            background-color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .logo-container {
+            width: 30%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .logo {
+            max-width: 30%;
+            height: auto;
+        }
+        .container {
+            text-align: center;
+        }
+        .signal {
+            width: 100px;
+            height: 270px; /* Adjusted height to fit all lights without overlap */
+            background-color: #363636;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure even spacing between lights */
+            align-items: center;
+        }
+        .light {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: -10px; /* Adjusted spacing */
+        }
+        .light:last-child {
+            margin-bottom: 0;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        .green {
+            background-color: green;
+        }
+        .red {
+            background-color: red;
+        }
+        .gray {
+            background-color: gray;
+        }
+        .white {
+            background-color: whitesmoke;
+        }
+        .black {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .info {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: red; /* Set the background color to red */
+            border: none;
+            color: white;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow effect */
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .buttons button:hover {
+            background-color: blue; /* Change to blue on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="c:\Users\RLAB550\Downloads\IMG-1599.jpg" alt="CIT Logo" class="logo">
+    </div>
+    <div class="container">
+        <div id="signal-container">
+            <!-- Signal 1 -->
+            <div class="signal" id="signal-1">
+                <div class="light yellow"></div>
+                <div class="light green" style="animation: flash 1s infinite;"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 2 -->
+            <div class="signal hidden" id="signal-2">
+                <div class="light red" style="animation: flash 1s infinite;"></div>
+                <div class="light red"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 3 -->
+            <div class="signal hidden" id="signal-3">
+                <div class="light red"></div>
+                <div class="light green" style="animation: flash 1s infinite;"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 4 -->
+            <div class="signal hidden" id="signal-4">
+                <div class="light yellow"></div>
+                <div class="light red" style="animation: flash 1s infinite;"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 5 -->
+            <div class="signal hidden" id="signal-5">
+                <div class="light yellow"></div>
+                <div class="light yellow"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 6 -->
+            <div class="signal hidden" id="signal-6">
+                <div class="light white"></div>
+                <div class="light red"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 7 -->
+            <div class="signal hidden" id="signal-7">
+                <div class="light yellow" style="animation: flash 1s infinite;"></div>
+                <div class="light red"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 8 -->
+            <div class="signal hidden" id="signal-8">
+                <div class="light red"></div>
+                <div class="light yellow" style="animation: flash 1s infinite;"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 9 -->
+            <div class="signal hidden" id="signal-9">
+                <div class="light red"></div>
+                <div class="light black"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 10 -->
+            <div class="signal hidden" id="signal-10">
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 11 -->
+            <div class="signal hidden" id="signal-11">
+                <div class="light red"></div>
+                <div class="light green"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 12 -->
+            <div class="signal hidden" id="signal-12">
+                <div class="light red"></div>
+                <div class="light red"></div>
+                <div class="light green"></div>
+            </div>
+            <!-- Signal 13 -->
+            <div class="signal hidden" id="signal-13">
+                <div class="light yellow"></div>
+                <div class="light red"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 14 -->
+            <div class="signal hidden" id="signal-14">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light yellow"></div>
+            </div>
+            <!-- Signal 15 -->
+            <div class="signal hidden" id="signal-15">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 16 -->
+            <div class="signal hidden" id="signal-16">
+                <div class="light red"></div>
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+            </div>
+            <!-- Signal 17 -->
+            <div class="signal hidden" id="signal-17">
+                <div class="light green"></div>
+                <div class="light black"></div>
+                <div class="light black"></div>
+            </div>
+            <!-- Signal 18 -->
+            <div class="signal hidden" id="signal-18">
+                <div class="light yellow"></div>
+                <div class="light green" style="animation: flash 1s infinite;"></div>
+                <div class="light black"></div>
+            </div>
+            <!-- Signal 19 -->
+            <div class="signal hidden" id="signal-19">
+                <div class="light red"></div>
+                <div class="light white"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 20 -->
+            <div class="signal hidden" id="signal-20">
+                <div class="light yellow"></div>
+                <div class="light white"></div>
+                <div class="light red"></div>
+            </div>
+            <!-- Signal 21 -->
+            <div class="signal hidden" id="signal-21">
+                <div class="light yellow"></div>
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+            </div>
+        </div>
+        <div class="info" id="info"></div>
+        <div class="buttons">
+            <button onclick="showName()">Show Name</button>
+            <button onclick="showIndication()">Show Indication</button>
+            <button onclick="previousSignal()">Previous Signal</button>
+            <button onclick="nextSignal()">Next Signal</button>
+        </div>
+    </div>
+
+    <script>
+        const signals = [
+            {
+                name: "Approach Clear Sixty",
+                indication: "Proceed. Trains exceeding 60mph proceed prepared to pass next signal not exceeding 60mph."
+            },
+            {
+                name: "Restricting",
+                indication: "Proceed at restricted speed, not exceeding prescribed speed throughout the turnout when applicable."
+            },
+            {
+                name: "Diverging Clear Limited",
+                indication: "Proceed on diverging route. Speed through turnout must not exceed 40 mph."
+            },
+            {
+                name: "Approach Restricting",
+                indication: "Proceed prepared to pass next signal at restricted speed, but not exceeding 15mph."
+            },
+            {
+                name: "Approach Diverging",
+                indication: "Proceed prepared to advance on diverging route at next signal at prescribed speed through turnout."
+            },
+            {
+                name: "Restricting",
+                indication: "Proceed at restricted speed, not exceeding prescribed speed throughout the turnout when applicable."
+            },
+            {
+                name: "Advance Approach",
+                indication: "Proceed prepared to stop at second signal. Trains exceeding 40mph proceed prepared to pass the next signal not exceeding 40mph."
+            },
+            {
+                name: "Diverging Advance Approach",
+                indication: "Proceed on diverging route not exceeding prescribed speed and be prepared to stop at second signal. Trains must be prepared to pass next signal not exceeding 40mph."
+            },
+            {
+                name: "Stop",
+                indication: "Stop before any part of train or engine passes the signal."
+            },
+            {
+                name: "Approach Clear Fifty",
+                indication: "Proceed. Trains exceeding 50 mph proceed prepared to pass the next signal not exceeding 50 mph. When signal governs approach to a control point with a 50 mph turnout speed be prepared to advance on diverging route."
+            },
+            {
+                name: "Diverging Clear",
+                indication: "Proceed on diverging route not exceeding prescribed speed through turnout."
+            },
+            {
+                name: "Diverging Clear",
+                indication: "Proceed on diverging route not exceeding prescribed speed through turnout."
+            },
+            {
+                name: "Approach",
+                indication: "Proceed prepared to stop before any part of the train or engine passes the next signal. Freight trains exceeding 30mph must immediately reduce to 30mph."
+            },
+            {
+                name: "Diverging Approach Diverging",
+                indication: "Proceed on diverging route not exceeding prescribed speed through turnout prepared to advance on diverging route at next signal at prescribed speed through turnout."
+            },
+            {
+                name: "Diverging Approach",
+                indication: "Proceed on diverging route at prescribed speed through turnout prepared to stop. Freight trains must immediately reduce to 30mph. Passenger trains reduce to 40mph."
+            },
+            {
+                name: "Diverging Approach",
+                indication: "Proceed on diverging route at prescribed speed through turnout prepared to stop. Freight trains must immediately reduce to 30mph. Passenger trains reduce to 40mph."
+            },
+            {
+                name: "Clear",
+                indication: "Proceed."
+            },
+            {
+                name: "Approach Clear Sixty",
+                indication: "Proceed. Trains exceeding 60mph proceed prepared to pass next signal not exceeding 60mph."
+            },
+            {
+                name: "Restricting",
+                indication: "Proceed at restricted speed, not exceeding prescribed speed throughout the turnout when applicable."
+            },
+            {
+                name: "Approach Restricting",
+                indication: "Proceed prepared to pass next signal at restricted speed, but not exceeding 15mph."
+            },
+            {
+                name: "Approach Diverging",
+                indication: "Proceed prepared to advance on diverging route at next signal at prescribed speed through turnout."
+            }
+        ];
+
+        let currentSignal = 0;
+
+        function showName() {
+            document.getElementById('info').innerText = signals[currentSignal].name;
+        }
+
+        function showIndication() {
+            document.getElementById('info').innerText = signals[currentSignal].indication;
+        }
+
+        function previousSignal() {
+            document.getElementById(`signal-${currentSignal + 1}`).classList.add('hidden');
+            currentSignal = (currentSignal - 1 + signals.length) % signals.length;
+            document.getElementById(`signal-${currentSignal + 1}`).classList.remove('hidden');
+            document.getElementById('info').innerText = '';
+        }
+
+        function nextSignal() {
+            document.getElementById(`signal-${currentSignal + 1}`).classList.add('hidden');
+            currentSignal = (currentSignal + 1) % signals.length;
+            document.getElementById(`signal-${currentSignal + 1}`).classList.remove('hidden');
+            document.getElementById('info').innerText = '';
+        }
+    </script>
+</body>
+</html>
